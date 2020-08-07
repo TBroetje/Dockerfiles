@@ -18,7 +18,7 @@ RUN apk update && \
       curl \
       libldap \
       libgcrypt \
-      python \
+      py-pip \
       dbus \
       dbus-glib \
       py-dbus \
