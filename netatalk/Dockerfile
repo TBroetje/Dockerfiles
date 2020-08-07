@@ -58,7 +58,7 @@ RUN apk update && \
       --sbindir=/usr/bin \
       --enable-quota \
       --with-tdb \
-      --enable-zeroconf
+      --enable-zeroconf \
       --enable-silent-rules \
       --with-cracklib \
       --with-cnid-cdb-backend \
