@@ -25,7 +25,7 @@ COPY --from=builder /src/yggdrasil    /usr/bin/
 COPY --from=builder /src/yggdrasilctl /usr/bin/
 COPY --from=builder /tmp/dumb-init    /usr/bin/
 COPY                start.sh          /usr/bin/
-RUN chmod +x /usr/bin/run.sh
+RUN chmod +x /usr/bin/start.sh
 
 VOLUME /config
 
