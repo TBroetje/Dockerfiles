@@ -1,0 +1,22 @@
+name: Docker push on Github registry
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - gopher/*
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Publish Image
+        uses: matootie/github-docker@v3.0.0
+        with:
+          accessToken: ${{ secrets.ACCESS_TOKEN }}
+          imageName: gopher
+          imageTag: 0.0.1
+          context: gopher
