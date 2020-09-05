@@ -6,6 +6,10 @@ on:
       - master
     paths:
       - Yggdrasil/*
+defaults:
+  run:
+    shell: bash
+    working-directory: Yggdrasil
 
 jobs:
   build:
@@ -19,4 +23,3 @@ jobs:
           accessToken: ${{ github.token }}
           imageName: yggdrasil
           tag: 0.0.1
-          context: Yggdrasil
