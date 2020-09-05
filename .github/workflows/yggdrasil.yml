@@ -1,4 +1,4 @@
-name: Docker push gopher on Github registry
+name: Docker push yggdrasil on Github registry
 
 on:
   push:
