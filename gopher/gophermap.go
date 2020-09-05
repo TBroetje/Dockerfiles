@@ -70,3 +70,4 @@ func parse(s string) (byte, []string) {
 
 	fields := []string{f_name, f_selector, f_host, f_port}
 	return itemtype, fields
+}
