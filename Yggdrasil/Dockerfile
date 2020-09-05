@@ -16,7 +16,6 @@ RUN set -ex \
 
 FROM alpine:3.10
 
-LABEL maintainer "Knut Ahlers <knut@ahlers.me>"
 
 RUN set -ex \
  && apk --no-cache add bash
