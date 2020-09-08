@@ -1,0 +1,22 @@
+name: Docker push ig-scraper on Github registry
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - scraper/instagram/*
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Publish Image
+        uses: matootie/github-docker@v3.0.0
+        with:
+          accessToken: ${{ github.token }}
+          imageName: ig-scraper
+          tag: 0.0.1
+          context: scraper/instagram
