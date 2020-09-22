@@ -1,6 +1,7 @@
 name: Docker push yggdrasil on Github registry
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -24,3 +25,17 @@ jobs:
           imageName: yggdrasil
           tag: 0.0.1
           context: Yggdrasil
+      - name: Deploy
+        if: success()
+        uses: yuyitech/github-action-rancher2@v0.0.1
+        env:
+          RANCHER_ACCESS_KEY: ${{ secrets.RANCHER_ACCESS_KEY }}
+          RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
+          RANCHER_URL: https://rancher.broetje.online/v3/project/local:p-sr5th/workloads/deployment:yggdrasil:yggdrasil-node1
+          RANCHER_DATA: |
+            [
+              {
+                "name": "yggdrasil-node1",
+                "image": "docker.pkg.github.com/tbroetje/dockerfiles/yggdrasil:0.0.1"
+              }
+            ]
