@@ -1,0 +1,3 @@
+[submodule "archiving/archivy"]
+	path = archiving/archivy
+	url = https://github.com/Uzay-G/archivy
