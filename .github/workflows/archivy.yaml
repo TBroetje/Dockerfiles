@@ -1,0 +1,23 @@
+name: Docker push archivy on Github registry
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - archiving/archivy/*
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Publish Image
+        uses: matootie/github-docker@v3.0.0
+        with:
+          accessToken: ${{ github.token }}
+          imageName: archivy
+          tag: 0.0.1
+          context: archiving/archivy
